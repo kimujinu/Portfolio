@@ -1,9 +1,7 @@
 package com.example.portfolio;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,74 +14,35 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Summary extends AppCompatActivity {
+public class Summary2 extends AppCompatActivity {
     Button likebutton;
-    Button hatebutton,writebtn,seebtn;
     TextView likeCountView;
-    TextView hateCountView;
     CommentAdapter adapter;
     ListView listView;
     boolean likestate = false;
     boolean hatestate = false;
     int likeCount = 0;
-    int hateCount = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+        setContentView(R.layout.activity_summary2);
 
         likebutton = findViewById(R.id.likeCount);
         likeCountView = findViewById(R.id.likeCountView);
-        hatebutton = findViewById(R.id.hateCount);
-        hateCountView = findViewById(R.id.hateCountView);
-        writebtn = findViewById(R.id.writebtn);
-        seebtn = findViewById(R.id.Seebtn);
-
         listView = findViewById(R.id.listview3);
         adapter = new CommentAdapter();
-
-        writebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCommentWriteActivity();
-            }
-        });
-        seebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCommentlistActivity();
-            }
-        });
-
-        hatebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(hatestate==true){
-                    decrhateCount();
-                }else if(hatestate==false){
-                    incrhateCount();
-                }
-                if(hatestate==true && likestate==true){
-                    decrLikeCount();
-                }
-
-            }
-        });
 
         likebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(likestate==true){
+                if(likestate){
                     decrLikeCount();
-                }else if(likestate==false){
+                }else{
                     incrLikeCount();
                 }
-                if(hatestate==true && likestate==true){
-                   decrhateCount();
-                }
 
+                likestate = !likestate;
             }
         });
 
@@ -97,7 +56,7 @@ public class Summary extends AppCompatActivity {
             }
         });
         adapter.addItem(new Profile("강동원","10분전","강동원 너무 잘생겼네","추천 0  | ","신고하기",5 , R.drawable.user1));
-        adapter.addItem(new Profile("skssk35**","21분전","마동석 멋있다.","추천 1  | ","신고하기",3 , R.drawable.user1));
+        adapter.addItem(new Profile("강동원","10분전","강동원 너무 잘생겼네","추천 0  | ","신고하기",5 , R.drawable.user1));
 
     }
     public void incrLikeCount() {
@@ -105,7 +64,6 @@ public class Summary extends AppCompatActivity {
         likeCountView.setText(String.valueOf(likeCount));
 
         likebutton.setBackgroundResource(R.drawable.ic_thumb_up_selected);
-        likestate = true;
     }
 
     public void decrLikeCount() {
@@ -113,44 +71,6 @@ public class Summary extends AppCompatActivity {
         likeCountView.setText(String.valueOf(likeCount));
 
         likebutton.setBackgroundResource(R.drawable.thumbs_up_selector);
-        likestate = false;
-
-    }
-    public void incrhateCount() {
-        hateCount+=1;
-        hateCountView.setText(String.valueOf(hateCount));
-
-        hatebutton.setBackgroundResource(R.drawable.ic_thumb_down_selected);
-        hatestate = true;
-    }
-
-    public void decrhateCount() {
-        hateCount-=1;
-        hateCountView.setText(String.valueOf(hateCount));
-
-        hatebutton.setBackgroundResource(R.drawable.thumbs_down_selector);
-        hatestate = false;
-    }
-    public void showCommentWriteActivity() {
-
-        Intent intent = new Intent(getApplicationContext(),CommentWriteActivity.class);
-        startActivityForResult(intent,101);
-    }
-
-    public void showCommentlistActivity() {
-
-        Intent intent = new Intent(getApplicationContext(),commentList.class);
-        startActivityForResult(intent,101);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-        if(requestCode == 101) {
-            if(intent != null) {
-
-            }
-        }
     }
 
     class CommentAdapter extends BaseAdapter {

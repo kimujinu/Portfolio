@@ -1,6 +1,5 @@
 package com.example.portfolio;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,39 +9,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Summary extends AppCompatActivity {
-    Button likebutton;
-    Button hatebutton,writebtn,seebtn;
-    TextView likeCountView;
-    TextView hateCountView;
+public class commentList extends AppCompatActivity {
     CommentAdapter adapter;
     ListView listView;
-    boolean likestate = false;
-    boolean hatestate = false;
-    int likeCount = 0;
-    int hateCount = 0;
-
-
+    Button writebtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+        setContentView(R.layout.activity_comment_list);
 
-        likebutton = findViewById(R.id.likeCount);
-        likeCountView = findViewById(R.id.likeCountView);
-        hatebutton = findViewById(R.id.hateCount);
-        hateCountView = findViewById(R.id.hateCountView);
-        writebtn = findViewById(R.id.writebtn);
-        seebtn = findViewById(R.id.Seebtn);
-
-        listView = findViewById(R.id.listview3);
+        listView = findViewById(R.id.listview4);
+        writebtn = findViewById(R.id.writebtn2);
         adapter = new CommentAdapter();
+
+        listView.setAdapter(adapter);
 
         writebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,45 +36,7 @@ public class Summary extends AppCompatActivity {
                 showCommentWriteActivity();
             }
         });
-        seebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCommentlistActivity();
-            }
-        });
 
-        hatebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(hatestate==true){
-                    decrhateCount();
-                }else if(hatestate==false){
-                    incrhateCount();
-                }
-                if(hatestate==true && likestate==true){
-                    decrLikeCount();
-                }
-
-            }
-        });
-
-        likebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(likestate==true){
-                    decrLikeCount();
-                }else if(likestate==false){
-                    incrLikeCount();
-                }
-                if(hatestate==true && likestate==true){
-                   decrhateCount();
-                }
-
-            }
-        });
-
-
-        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,62 +44,22 @@ public class Summary extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"선택 : "+item.getId(), Toast.LENGTH_LONG).show();
             }
         });
-        adapter.addItem(new Profile("강동원","10분전","강동원 너무 잘생겼네","추천 0  | ","신고하기",5 , R.drawable.user1));
+        adapter.addItem(new Profile("kym71**","10분전","적당히 재밌다.","추천 0  | ","신고하기",5 , R.drawable.user1));
+        adapter.addItem(new Profile("dnehd124**","15분전","킬링타임용","추천 1  | ","신고하기",4 , R.drawable.user1));
+        adapter.addItem(new Profile("ny27**","17분전","하정우 연기 잘한다.","추천 1  | ","신고하기",4, R.drawable.user1));
+        adapter.addItem(new Profile("ny9812**","20분전","불면증있는 사람 특효약","추천 2  | ","신고하기",5 , R.drawable.user1));
         adapter.addItem(new Profile("skssk35**","21분전","마동석 멋있다.","추천 1  | ","신고하기",3 , R.drawable.user1));
+        adapter.addItem(new Profile("ddong**","35분전","강동원 너무 잘생겼네","추천 3  | ","신고하기",5, R.drawable.user1));
+
 
     }
-    public void incrLikeCount() {
-        likeCount+=1;
-        likeCountView.setText(String.valueOf(likeCount));
 
-        likebutton.setBackgroundResource(R.drawable.ic_thumb_up_selected);
-        likestate = true;
-    }
-
-    public void decrLikeCount() {
-        likeCount-=1;
-        likeCountView.setText(String.valueOf(likeCount));
-
-        likebutton.setBackgroundResource(R.drawable.thumbs_up_selector);
-        likestate = false;
-
-    }
-    public void incrhateCount() {
-        hateCount+=1;
-        hateCountView.setText(String.valueOf(hateCount));
-
-        hatebutton.setBackgroundResource(R.drawable.ic_thumb_down_selected);
-        hatestate = true;
-    }
-
-    public void decrhateCount() {
-        hateCount-=1;
-        hateCountView.setText(String.valueOf(hateCount));
-
-        hatebutton.setBackgroundResource(R.drawable.thumbs_down_selector);
-        hatestate = false;
-    }
     public void showCommentWriteActivity() {
 
         Intent intent = new Intent(getApplicationContext(),CommentWriteActivity.class);
         startActivityForResult(intent,101);
     }
 
-    public void showCommentlistActivity() {
-
-        Intent intent = new Intent(getApplicationContext(),commentList.class);
-        startActivityForResult(intent,101);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-        if(requestCode == 101) {
-            if(intent != null) {
-
-            }
-        }
-    }
 
     class CommentAdapter extends BaseAdapter {
         ArrayList<Profile> items = new ArrayList<Profile>();
@@ -193,6 +101,7 @@ public class Summary extends AppCompatActivity {
             view.setReportText(item.getReport());
             view.setRatingbar(item.getRating());
             view.setImage(item.getImage());
+
             return view;
         }
     }

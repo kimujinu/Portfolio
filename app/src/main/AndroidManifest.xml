@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.portfolio">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_app"
@@ -9,7 +13,52 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Summary">
+        <activity android:name=".commentList">
+
+        </activity>
+        <activity android:name=".CommentWriteActivity" />
+        <activity android:name=".Summary3">
+
+        </activity>
+        <activity android:name=".RiskauthorityTest" />
+
+        <receiver
+            android:name=".SmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".SMSReceiverTest"></activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ServiceTest" />
+        <activity android:name=".LifecycleTest" />
+        <activity android:name=".ParcelableMenuTest" />
+        <activity android:name=".ParcelableTest" />
+        <activity
+            android:name=".MenuTest"
+            android:label="메뉴"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity android:name=".IntentTest" />
+        <activity android:name=".Summary2" />
+        <activity android:name=".GridViewTest" />
+        <activity android:name=".SpinnerTest" />
+        <activity android:name=".ListviewTest" />
+        <activity android:name=".LayoutInflaterTest" />
+        <activity android:name=".BitmapButtonTest" />
+        <activity android:name=".NinePatchTest" />
+        <activity android:name=".DialogTest" />
+        <activity android:name=".ToastTest" />
+        <activity android:name=".EventTest" />
+        <activity android:name=".TablelayoutTest" />
+        <activity android:name=".Summary" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,9 +67,7 @@
         </activity>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

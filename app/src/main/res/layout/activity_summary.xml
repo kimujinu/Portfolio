@@ -8,8 +8,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,31 +75,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Button
+                    android:id="@+id/likeCount"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_thumb_up"/>
+                    android:background="@drawable/thumbs_up_selector" />
                 <TextView
+                    android:id="@+id/likeCountView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:layout_marginTop="18dp"
-                    android:textColor="@android:color/background_light"
-                    android:text="15"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:textColor="@android:color/background_light"
+                    android:text="0"/>
+
+                <Button
+                    android:id="@+id/hateCount"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_thumb_down"/>
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/thumbs_down_selector" />
                 <TextView
+                    android:id="@+id/hateCountView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="@android:color/background_light"
-                    android:text="2"/>
+                    android:text="0"/>
 
             </LinearLayout>
 
@@ -140,14 +144,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="평점"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RatingBar
+                    android:id="@+id/Ratingbar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    style="?android:attr/ratingBarStyleSmall" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8.2"
+                    android:layout_toRightOf="@+id/Ratingbar2"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:numStars="5"
-                android:rating="4.5"
-                style="?android:attr/ratingBarStyleSmall" />
 
 
         </LinearLayout>
@@ -225,7 +240,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp">
@@ -242,11 +257,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_toLeftOf="@+id/button"
+            android:layout_toLeftOf="@+id/writebtn"
             android:src="@drawable/ic_review_selected" />
 
+            <ListView
+                android:id="@+id/listview3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="55dp"
+                android:layout_marginBottom="65dp"/>
+
         <Button
-            android:id="@+id/button"
+            android:id="@+id/writebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -256,6 +278,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/Seebtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
