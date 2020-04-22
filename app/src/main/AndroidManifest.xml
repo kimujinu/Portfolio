@@ -13,13 +13,19 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".commentList">
+        <activity android:name=".MyfragmentTest2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyFragmentTest">
 
         </activity>
+        <activity android:name=".commentList" />
         <activity android:name=".CommentWriteActivity" />
-        <activity android:name=".Summary3">
-
-        </activity>
+        <activity android:name=".Summary3" />
         <activity android:name=".RiskauthorityTest" />
 
         <receiver
@@ -31,7 +37,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".SMSReceiverTest"></activity>
+        <activity android:name=".SMSReceiverTest" />
 
         <service
             android:name=".MyService"
@@ -58,13 +64,7 @@
         <activity android:name=".ToastTest" />
         <activity android:name=".EventTest" />
         <activity android:name=".TablelayoutTest" />
-        <activity android:name=".Summary" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Summary"></activity>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity" />
