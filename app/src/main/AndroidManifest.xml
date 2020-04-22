@@ -13,17 +13,19 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyOptionmenuTest">
+        <activity android:name=".MyPager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyfragmentTest2">
+        <activity android:name=".MyTabTest">
 
         </activity>
-        <activity android:name=".MyFragmentTest"></activity>
+        <activity android:name=".MyOptionmenuTest"></activity>
+        <activity android:name=".MyfragmentTest2" />
+        <activity android:name=".MyFragmentTest" />
         <activity android:name=".commentList" />
         <activity android:name=".CommentWriteActivity" />
         <activity android:name=".Summary3" />
