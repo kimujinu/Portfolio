@@ -13,16 +13,17 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyfragmentTest2">
+        <activity android:name=".MyOptionmenuTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyFragmentTest">
+        <activity android:name=".MyfragmentTest2">
 
         </activity>
+        <activity android:name=".MyFragmentTest"></activity>
         <activity android:name=".commentList" />
         <activity android:name=".CommentWriteActivity" />
         <activity android:name=".Summary3" />
@@ -64,7 +65,7 @@
         <activity android:name=".ToastTest" />
         <activity android:name=".EventTest" />
         <activity android:name=".TablelayoutTest" />
-        <activity android:name=".Summary"></activity>
+        <activity android:name=".Summary" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity" />
