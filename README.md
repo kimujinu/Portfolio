@@ -7,4 +7,5 @@ commit 1번째, 2번째는 한꺼번에 해서 메모를 못했음.
 1번째 2번째 공부내용 :
 (BitmapButton, ListView, Dialog, ActionEvent, GridView, Intent, Inflate, LifrCycle, 
  Parcelable, Riskauthority, BroadcastReceiver, Spinner, Tablelayout, Toast, Snackbar)
- 
+
+3번째 : viewPager, Navigation Drawer 
