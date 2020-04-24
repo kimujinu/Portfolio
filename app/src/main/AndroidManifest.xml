@@ -13,17 +13,22 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyPager">
+        <activity android:name=".MyfragmentSummary">
+
+        </activity>
+        <activity
+            android:name=".SummaryStart"
+            android:label="포트폴리오"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyTabTest">
-
+        <activity android:name=".MyPager">
         </activity>
-        <activity android:name=".MyOptionmenuTest"></activity>
+        <activity android:name=".MyTabTest" />
+        <activity android:name=".MyOptionmenuTest" />
         <activity android:name=".MyfragmentTest2" />
         <activity android:name=".MyFragmentTest" />
         <activity android:name=".commentList" />
@@ -67,7 +72,9 @@
         <activity android:name=".ToastTest" />
         <activity android:name=".EventTest" />
         <activity android:name=".TablelayoutTest" />
-        <activity android:name=".Summary" />
+        <activity android:name=".Summary" >
+
+        </activity>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity" />

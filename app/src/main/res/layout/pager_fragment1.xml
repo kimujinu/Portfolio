@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_secondary"
+    android:background="@drawable/main_background"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView11"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="첫번째"
-        android:textSize="40dp" />
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="50dp"
+
+        android:background="@drawable/image1">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="1. 군 도"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="25dp">
+    </TextView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_slider1"
+        android:layout_marginTop="15dp">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="예매율 61.6% | 15세 관람가 | D-1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/Detailbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="150dp"
+        android:text="상세 보기"
+        android:textColor="#ffffff"
+        android:background="@drawable/linear_border">
+
+    </Button>
+
+
 </LinearLayout>

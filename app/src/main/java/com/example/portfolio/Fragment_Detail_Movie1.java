@@ -1,12 +1,11 @@
 package com.example.portfolio;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,9 +15,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
 
-public class Summary extends AppCompatActivity {
+public class Fragment_Detail_Movie1 extends Fragment {
 
     Button likebutton;
     Button hatebutton,writebtn,seebtn;
@@ -32,21 +36,22 @@ public class Summary extends AppCompatActivity {
     int hateCount = 0;
 
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.fragment_detail_movie1,container,false);
 
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("영화 상세");
 
-        likebutton = findViewById(R.id.likeCount);
-        likeCountView = findViewById(R.id.likeCountView);
-        hatebutton = findViewById(R.id.hateCount);
-        hateCountView = findViewById(R.id.hateCountView);
-        writebtn = findViewById(R.id.writebtn);
-        seebtn = findViewById(R.id.Seebtn);
+        likebutton = rootview.findViewById(R.id.likeCount);
+        likeCountView = rootview.findViewById(R.id.likeCountView);
+        hatebutton = rootview.findViewById(R.id.hateCount);
+        hateCountView = rootview.findViewById(R.id.hateCountView);
+        writebtn = rootview.findViewById(R.id.writebtn);
+        seebtn = rootview.findViewById(R.id.Seebtn);
 
-        listView = findViewById(R.id.listview3);
+        listView = rootview.findViewById(R.id.listview3);
         adapter = new CommentAdapter();
 
         writebtn.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +91,7 @@ public class Summary extends AppCompatActivity {
                     incrLikeCount();
                 }
                 if(hatestate==true && likestate==true){
-                   decrhateCount();
+                    decrhateCount();
                 }
 
             }
@@ -98,13 +103,16 @@ public class Summary extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Profile item = (Profile) adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),"선택 : "+item.getId(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"선택 : "+item.getId(), Toast.LENGTH_LONG).show();
             }
         });
         adapter.addItem(new Profile("강동원","10분전","강동원 너무 잘생겼네","추천 0  | ","신고하기",5 , R.drawable.user1));
         adapter.addItem(new Profile("skssk35**","21분전","마동석 멋있다.","추천 1  | ","신고하기",3 , R.drawable.user1));
 
+        return rootview;
     }
+
+
     public void incrLikeCount() {
         likeCount+=1;
         likeCountView.setText(String.valueOf(likeCount));
@@ -138,17 +146,17 @@ public class Summary extends AppCompatActivity {
     }
     public void showCommentWriteActivity() {
 
-        Intent intent = new Intent(getApplicationContext(),CommentWriteActivity.class);
+        Intent intent = new Intent(getActivity(),CommentWriteActivity.class);
         startActivityForResult(intent,101);
     }
 
     public void showCommentlistActivity() {
 
-        Intent intent = new Intent(getApplicationContext(),commentList.class);
+        Intent intent = new Intent(getActivity(),commentList.class);
         startActivityForResult(intent,101);
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if(requestCode == 101) {
@@ -156,6 +164,10 @@ public class Summary extends AppCompatActivity {
 
             }
         }
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu,inflater); inflater.inflate(R.menu.activity_my_drawer_test_drawer,menu);
     }
 
     class CommentAdapter extends BaseAdapter {
@@ -182,10 +194,10 @@ public class Summary extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            CommentItemView view = new CommentItemView(getApplicationContext());
+            CommentItemView view = new CommentItemView(getActivity());
 
             if(convertView == null) {
-                view = new CommentItemView(getApplicationContext());
+                view = new CommentItemView(getActivity());
             }else{
                 view = (CommentItemView) convertView;
             }

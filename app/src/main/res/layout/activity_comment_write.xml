@@ -10,23 +10,23 @@
         android:orientation="horizontal"
         android:background="@drawable/liner_border5">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="군도"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="군도"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="6dp"
-        android:src="@drawable/ic_15" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="6dp"
+            android:src="@drawable/ic_15" />
     </LinearLayout>
 
     <RatingBar
@@ -61,20 +61,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <Button
-        android:id="@+id/savebtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/cancelbtn"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/linear_border"
-        android:text="저장" />
-    <Button
-        android:id="@+id/cancelbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/linear_border"
-        android:text="취소" />
+        <Button
+            android:id="@+id/savebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/cancelbtn"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/linear_border"
+            android:text="저장" />
+        <Button
+            android:id="@+id/cancelbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/linear_border"
+            android:text="취소" />
     </RelativeLayout>
 </LinearLayout>

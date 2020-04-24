@@ -16,6 +16,7 @@ public class MyFragmentTest extends AppCompatActivity {
                                                             //MyfragmentTest, mainFragment(fragment_main), menuFragment(fragment_menu)
         Button btn = findViewById(R.id.fragbtn);
         Button btn2 = findViewById(R.id.menufragbtn);
+
         fragment1  = new MainFragment();
         fragment2 = new MenuFragment();
 

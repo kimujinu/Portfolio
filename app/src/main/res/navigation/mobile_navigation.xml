@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_1">
+
+    <fragment
+        android:id="@+id/nav_1"
+        android:name="com.example.portfolio.MyPagerFragment"
+        android:label="영화 목록"
+        tools:layout="@layout/mypagerfragment" />
+
+    <fragment
+        android:id="@+id/nav_2"
+        android:name="com.example.portfolio.Fragment2"
+        android:label="테스트"
+        tools:layout="@layout/fragment2" />
+
+    <fragment
+        android:id="@+id/nav_3"
+        android:name="com.example.portfolio.Fragment3"
+        android:label="테스트"
+        tools:layout="@layout/fragment3" />
+
+    <fragment
+        android:id="@+id/nav_4"
+        android:name="com.example.portfolio.Fragment_Detail_Movie1"
+        android:label="영화 상세"
+        tools:layout="@layout/fragment_detail_movie1" />
+
+
+</navigation>
