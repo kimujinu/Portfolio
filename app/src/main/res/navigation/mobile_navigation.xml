@@ -23,11 +23,6 @@
         android:label="테스트"
         tools:layout="@layout/fragment3" />
 
-    <fragment
-        android:id="@+id/nav_4"
-        android:name="com.example.portfolio.Fragment_Detail_Movie1"
-        android:label="영화 상세"
-        tools:layout="@layout/fragment_detail_movie1" />
 
 
 </navigation>

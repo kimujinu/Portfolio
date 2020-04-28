@@ -1,6 +1,7 @@
 package com.example.portfolio;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,11 @@ public class MyPagerFragment extends Fragment {
 
     class MoviePagerAdapter extends FragmentStatePagerAdapter {
         ArrayList<Fragment> items = new ArrayList<Fragment>();
+
+        @Override
+        public Parcelable saveState() {
+            return null;
+        } //필수
 
         public MoviePagerAdapter(FragmentManager fm) {
             super(fm);

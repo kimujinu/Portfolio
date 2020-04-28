@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.os.Parcelable;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -38,11 +39,11 @@ public class SummaryStart extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    Fragment3 fragment3;
-    Fragment2 fragment2;
-    Fragment1 fragment1;
-    MyPagerFragment myPagerFragment;
 
+    MyPagerFragment myPagerFragment;
+    Fragment1 fragment1;
+    Fragment2 fragment2;
+    Fragment3 fragment3;
     Fragment_Detail_Movie1 fragment_detail_movie1;
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -68,7 +69,7 @@ public class SummaryStart extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_1, R.id.nav_2, R.id.nav_3,R.id.nav_4)
+                R.id.nav_1, R.id.nav_2, R.id.nav_3,R.id.nav_setting)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -76,8 +77,30 @@ public class SummaryStart extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                int id = item.getItemId();
+                Fragment fragment = null;
+                if(id==R.id.nav_1){
+                    fragment = myPagerFragment;
+                }else if(id==R.id.nav_2){
+                    fragment = fragment2;
+                }else if(id == R.id.nav_3) {
+                    fragment = fragment3;
+                }else if(id == R.id.nav_setting){
+                    fragment = fragment1;
+                }
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
+
+
     public void onFragmentChange(int index) {
         if(index == 1) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment_detail_movie1).commit();
@@ -93,27 +116,4 @@ public class SummaryStart extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-
-    class MoviePagerAdapter extends FragmentStatePagerAdapter {
-        ArrayList<Fragment> items = new ArrayList<Fragment>();
-
-        public MoviePagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        public  void addItem(Fragment item) {
-            items.add(item);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return items.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-    }
 }

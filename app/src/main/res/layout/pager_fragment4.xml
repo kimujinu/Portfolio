@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="3. 레지던트 이블"
+        android:text="4. 레지던트 이블"
         android:textColor="#ffffff"
         android:gravity="center"
         android:textSize="25dp">
