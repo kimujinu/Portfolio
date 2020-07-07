@@ -13,23 +13,24 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProgress">
+        <activity android:name=".sampledata.ViewpagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyThread">
-
-        </activity>
+        <activity android:name=".MyProgress"></activity>
+        <activity android:name=".MyThread"></activity>
         <activity android:name=".MyfragmentSummary" />
         <activity
             android:name=".SummaryStart"
             android:label="포트폴리오"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".MyPager" />
-        <activity android:name=".MyTabTest" />
+        <activity android:name=".MyPager"></activity>
+        <activity android:name=".MyTabTest">
+
+        </activity>
         <activity android:name=".MyOptionmenuTest" />
         <activity android:name=".MyfragmentTest2" />
         <activity android:name=".MyFragmentTest" />
