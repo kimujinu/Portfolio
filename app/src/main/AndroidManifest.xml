@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.portfolio">
+    package="com.example.portfolio" >
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -14,33 +15,40 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity android:name=".HttpActivity" >
+
+        </activity>
+
         <service
             android:name=".chatService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".MyServer">
+        <activity android:name=".MyServer" >
 
         </activity>
-        <activity android:name=".MySocket" />
-        <activity android:name=".MyProgress"></activity>
+        <activity android:name=".MySocket" >
+
+        </activity>
+        <activity android:name=".MyProgress" />
         <activity android:name=".MyThread" />
-        <activity android:name=".sampledata.ViewpagerActivity">
+        <activity android:name=".sampledata.ViewpagerActivity" >
+
+        </activity>
+        <activity android:name=".MyfragmentSummary" />
+        <activity
+            android:name=".SummaryStart"
+            android:label="포트폴리오"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyfragmentSummary" />
-        <activity
-            android:name=".SummaryStart"
-            android:label="포트폴리오"
-            android:theme="@style/AppTheme" />
         <activity android:name=".MyPager" />
         <activity android:name=".MyTabTest" />
-
         <activity android:name=".MyOptionmenuTest" />
         <activity android:name=".MyfragmentTest2" />
         <activity android:name=".MyFragmentTest" />
@@ -52,7 +60,7 @@
         <receiver
             android:name=".SmsReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
@@ -74,11 +82,7 @@
             android:label="메뉴"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity android:name=".IntentTest" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity android:name=".Summary2" />
         <activity android:name=".GridViewTest" />

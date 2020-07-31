@@ -41,7 +41,6 @@ public class chatService extends Service {
     class ServerThread extends Thread {
         public  void  run() {
             int port = 5001;
-
             try {
                 ServerSocket server = new ServerSocket(port);
                 Log.d("ServerThread","서버가 실행됨.");

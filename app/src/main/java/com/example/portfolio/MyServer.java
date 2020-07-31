@@ -24,16 +24,16 @@ public class MyServer extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // ServerThread thread = new ServerThread();
-              //  thread.start();
+//                ServerThread thread = new ServerThread();
+//                thread.start();
 
                 Intent intent = new Intent(getApplicationContext(),chatService.class);
                 startService(intent);
             }
         });
     }
-/*
-   class ServerThread extends Thread {
+
+  /* class ServerThread extends Thread {
         public  void  run() {
             int port = 5001;
 
@@ -61,5 +61,7 @@ public class MyServer extends AppCompatActivity {
         }
    }
    */
+
+
 
 }
